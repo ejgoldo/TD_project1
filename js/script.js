@@ -3,13 +3,10 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// For assistance: 
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
-
 /*** 
  * `quotes` array 
 ***/
+// first and last quote are without citation and year respectively
 var quotes= [
   {
     quote: "Frankly my dear, I don't give a damn",
@@ -45,13 +42,27 @@ var quotes= [
 /***
  * `getRandomQuote` function
 ***/
-
+function getRandomQuote(array) {
+  var random= Math.floor(Math.random()*array.length);
+}
 
 
 /***
  * `printQuote` function
 ***/
-
+function printQuote() {
+  var selectedQuote= getRandomQuote(quotes);
+  var outputQuote= '<p class="quote">' + selectedQuote + '</p>';
+  outputQuote+= '<p class="source">' + selectedQuote.source
+  if(selectedQuote.citation) {
+    '<span class="citation">' + selectedQuote.citation + '</span>';
+  }
+  if(selectedQuote.year) {
+    '<span class="year">' + selectedQuote.year + '</span>'
+  }
+  '</p>'
+  document.getElementById('quote-box').innerHTML = outputQuote;
+}
 
 
 /***
