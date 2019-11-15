@@ -3,7 +3,9 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
+// will automatically change the color and quote after a few seconds
 var refresh= setInterval(printQuote, 20000);
+var colorRefresh= setInterval(getRandomColor, 20000);
 
 /*** 
  * `quotes` array 
@@ -25,13 +27,15 @@ var quotes= [
     quote: "Carpe diem. Seize the day, boys. Make your lives extraordinary.",
     source: "Robin Williams",
     citation: "Dead Poets Society",
-    year: '1989'
+    year: '1989',
+    tag: ', Oh Captain, my Captain!'
   },
   {
     quote: "My mama always said life was like a box of chocolates. You never know what you're gonna get.",
     source: "Tom Hanks",
     citation: "Forrest Gump",
-    year: '1994'
+    year: '1994',
+    tag: ', Classic'
   },
   {
     quote: "You talking to me?",
@@ -62,9 +66,25 @@ function printQuote() {
     }
     if(selectedQuote.year) {
       outputQuote+= '<span class="year">' + selectedQuote.year + '</span>'
+    }
+    if(selectedQuote.tag) {
+      outputQuote+= '<span class="tag">' + selectedQuote.tag + '</span>'
     }'</p>'
   document.getElementById('quote-box').innerHTML = outputQuote;
 }
+
+function getRandomColor() {
+  var firstColor = Math.floor(Math.random() * 256);
+  var secondColor = Math.floor(Math.random() * 256);
+  var thirdColor = Math.floor(Math.random() * 256);
+
+  var background = "rgb("+firstColor+", "+secondColor+", "+thirdColor+")";
+
+  document.body.style.background = background
+}
+
+// event listener for color change when quote changes
+document.getElementById('load-quote').addEventListener("click", getRandomColor, false);
 
 
 /***
