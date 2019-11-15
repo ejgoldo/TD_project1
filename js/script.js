@@ -3,6 +3,8 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
+// completed- Exceeds met
+
 // will automatically change the color and quote after a few seconds
 var refresh= setInterval(printQuote, 20000);
 var colorRefresh= setInterval(getRandomColor, 20000);
