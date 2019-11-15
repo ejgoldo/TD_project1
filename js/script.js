@@ -80,7 +80,7 @@ function getRandomColor() {
 
   var background = "rgb("+firstColor+", "+secondColor+", "+thirdColor+")";
 
-  document.body.style.background = background
+  document.body.style.background = background;
 }
 
 // event listener for color change when quote changes
